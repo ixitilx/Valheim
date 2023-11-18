@@ -33,9 +33,9 @@ FROM build_stage AS bullseye-base
 
 ENV SERVER_PORT=2456 \
 	SERVER_PUBLIC=1 \
-	SERVER_WORLD_NAME="BraveNewWorld" \
-	SERVER_PW="changeme" \
-	SERVER_NAME="New \"${STEAMAPP}\" Server" \
+	SERVER_WORLD_NAME="test world" \
+	SERVER_PW="66866" \
+	SERVER_NAME="Bis \"${STEAMAPP}\" Realm" \
 	SERVER_LOG_PATH="logs_output/outputlog_server.txt" \
 	SERVER_SAVE_DIR="Worlds" \
 	SCREEN_QUALITY="Fastest" \
@@ -55,9 +55,7 @@ STOPSIGNAL SIGINT
 ENTRYPOINT ["tini", "-g", "--", "/home/steam/tinientry.sh"]
 
 # Expose ports
-EXPOSE 2456/tcp \
-	2456/udp \
-	2467/udp
+EXPOSE 2456/tcp 2456/udp 2467/udp
 
 FROM bullseye-base AS bullseye-plus
 
